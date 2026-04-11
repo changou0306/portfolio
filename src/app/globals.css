@@ -1,26 +1,88 @@
+@import "@fortawesome/fontawesome-free/css/all.min.css";
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ── Theme tokens (Tailwind v4) ── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-base-primary: #0a0a12;
+  --color-base-secondary: #0e0e1a;
+  --color-base-card: #141422;
+  --color-accent: #10b981;
+  --color-accent-light: #34d399;
+  --color-accent-glow: rgba(16, 185, 129, 0.12);
+  --color-cta: #f59e0b;
+  --color-txt-primary: #eeeef2;
+  --color-txt-secondary: #8888a0;
+  --color-txt-muted: #55556e;
+  --color-line: #1e1e34;
+
+  --font-display: var(--font-outfit);
+  --font-body: var(--font-noto-sans-jp);
+  --font-mono: var(--font-ibm-plex-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Hero grid background ── */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at 60% 50%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 60% 50%, black 20%, transparent 70%);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ── Nav link underline ── */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #10b981;
+  transition: width 0.3s;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── LP: FAQ details marker ── */
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+.faq-item[open] .faq-chevron {
+  transform: rotate(180deg);
+}
+
+/* ── LP: Form loading spinner ── */
+.btn-loading {
+  position: relative;
+  color: transparent !important;
+}
+.btn-loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin: -8px 0 0 -8px;
+  border: 2px solid transparent;
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
