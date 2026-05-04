@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import LpForm from "@/components/LpForm";
 
 export const metadata = {
@@ -215,11 +216,16 @@ export default function LpPage() {
               ))}
             </div>
           </div>
-          <div className="bg-gradient-to-br from-indigo-100 to-slate-100 rounded-2xl h-80 flex items-center justify-center">
-            <div className="text-center text-slate-400">
-              <i className="fas fa-chart-line text-5xl mb-3 text-indigo-300" />
-              <p className="text-sm">Dashboard Preview</p>
-            </div>
+          <div className="relative rounded-2xl overflow-hidden bg-white shadow-xl shadow-indigo-200/40 ring-1 ring-slate-200">
+            <Image
+              src="/lp/dashboard.png"
+              alt="マーケティング自動化ダッシュボードのプレビュー"
+              width={1200}
+              height={900}
+              priority
+              sizes="(max-width: 768px) 100vw, 540px"
+              className="w-full h-auto"
+            />
           </div>
         </div>
       </section>
@@ -271,11 +277,15 @@ export default function LpPage() {
               ))}
             </ul>
           </div>
-          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl h-72 flex items-center justify-center">
-            <div className="text-center text-slate-400">
-              <i className="fas fa-diagram-project text-5xl mb-3 text-indigo-300" />
-              <p className="text-sm">Automation Flow</p>
-            </div>
+          <div className="relative rounded-2xl overflow-hidden bg-white shadow-lg shadow-indigo-200/30 ring-1 ring-slate-200">
+            <Image
+              src="/lp/automation-flow.png"
+              alt="マーケティング自動化ワークフローの図"
+              width={1200}
+              height={900}
+              sizes="(max-width: 768px) 100vw, 540px"
+              className="w-full h-auto"
+            />
           </div>
         </div>
       </section>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
   title: "Trattoria Bella Luna | 本格イタリアン・東京都港区",
@@ -101,11 +102,16 @@ export default function RestaurantPage() {
               </a>
             </div>
           </div>
-          <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-2xl h-80 flex items-center justify-center">
-            <div className="text-center text-amber-400">
-              <i className="fas fa-wine-glass-alt text-6xl mb-3" />
-              <p className="text-sm text-amber-500">Main Visual</p>
-            </div>
+          <div className="relative rounded-2xl overflow-hidden shadow-xl shadow-amber-200/40 ring-1 ring-amber-100">
+            <Image
+              src="/demo/restaurant/hero.png"
+              alt="Bella Lunaの本格イタリアンパスタ"
+              width={1200}
+              height={900}
+              priority
+              sizes="(max-width: 768px) 100vw, 540px"
+              className="w-full h-auto"
+            />
           </div>
         </div>
       </section>
@@ -113,11 +119,15 @@ export default function RestaurantPage() {
       {/* ─── Concept ─── */}
       <section className="py-20">
         <div className="max-w-[1100px] mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-          <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl h-72 flex items-center justify-center">
-            <div className="text-center text-amber-400">
-              <i className="fas fa-seedling text-5xl mb-3" />
-              <p className="text-sm text-amber-500">Concept Image</p>
-            </div>
+          <div className="relative rounded-2xl overflow-hidden shadow-lg shadow-amber-200/30 ring-1 ring-amber-100">
+            <Image
+              src="/demo/restaurant/concept.png"
+              alt="南イタリアの温かな食卓"
+              width={1200}
+              height={900}
+              sizes="(max-width: 768px) 100vw, 540px"
+              className="w-full h-auto"
+            />
           </div>
           <div>
             <p className="text-amber-700 font-medium mb-2 tracking-wide text-sm uppercase">Concept</p>

@@ -3,17 +3,17 @@
 
 /* ── Theme tokens (Tailwind v4) ── */
 @theme inline {
-  --color-base-primary: #0a0a12;
-  --color-base-secondary: #0e0e1a;
-  --color-base-card: #141422;
-  --color-accent: #10b981;
-  --color-accent-light: #34d399;
-  --color-accent-glow: rgba(16, 185, 129, 0.12);
-  --color-cta: #f59e0b;
-  --color-txt-primary: #eeeef2;
-  --color-txt-secondary: #8888a0;
-  --color-txt-muted: #55556e;
-  --color-line: #1e1e34;
+  --color-base-primary: #fafaf7;
+  --color-base-secondary: #f5f4ef;
+  --color-base-card: #ffffff;
+  --color-accent: #d97757;
+  --color-accent-light: #e89175;
+  --color-accent-glow: rgba(217, 119, 87, 0.12);
+  --color-cta: #c45a3d;
+  --color-txt-primary: #1f1f1f;
+  --color-txt-secondary: #5b5b5b;
+  --color-txt-muted: #8a8a8a;
+  --color-line: #e5e3dc;
 
   --font-display: var(--font-outfit);
   --font-body: var(--font-noto-sans-jp);
@@ -23,8 +23,8 @@
 /* ── Hero grid background ── */
 .hero-grid {
   background-image:
-    linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(217, 119, 87, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(217, 119, 87, 0.05) 1px, transparent 1px);
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse at 60% 50%, black 20%, transparent 70%);
   -webkit-mask-image: radial-gradient(ellipse at 60% 50%, black 20%, transparent 70%);
@@ -38,7 +38,7 @@
   left: 0;
   width: 0;
   height: 1px;
-  background: #10b981;
+  background: #d97757;
   transition: width 0.3s;
 }
 .nav-link:hover::after,

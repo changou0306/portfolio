@@ -2,16 +2,12 @@ import Nav from "@/components/Nav";
 import ClientEffects from "@/components/ClientEffects";
 import ContactForm from "@/components/ContactForm";
 import Link from "next/link";
+import Image from "next/image";
 
 /* ── tiny helpers ── */
 const Tag = ({ children }) => (
   <span className="text-accent font-mono text-sm">{children}</span>
 );
-const Line = ({ children }) => (
-  <div className="flex gap-2 font-mono text-sm leading-relaxed">{children}</div>
-);
-const K = ({ children }) => <span className="text-txt-muted">{children}</span>;
-const V = ({ children }) => <span className="text-txt-primary">{children}</span>;
 
 const SectionHeader = ({ tag, title, sub }) => (
   <div className="text-center mb-12 reveal">
@@ -72,13 +68,27 @@ const SkillGroup = ({ label, skills }) => (
   </div>
 );
 
-const WorkCard = ({ title, desc, tags, href }) => (
+const WorkCard = ({ title, desc, tags, href, image }) => (
   <Link
     href={href}
-    className="block bg-base-card border border-line rounded-2xl overflow-hidden hover:border-accent/40 transition-colors reveal"
+    className="group block bg-base-card border border-line rounded-2xl overflow-hidden hover:border-accent/40 hover:shadow-lg transition-all reveal"
   >
-    <div className="h-48 bg-gradient-to-br from-accent/10 to-base-secondary flex items-center justify-center">
-      <i className="fas fa-code text-4xl text-accent/30" />
+    <div className="relative h-48 bg-base-secondary overflow-hidden">
+      {image ? (
+        <div className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-110">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            sizes="(max-width: 768px) 100vw, 540px"
+            className="object-cover object-top"
+          />
+        </div>
+      ) : (
+        <div className="h-full bg-gradient-to-br from-accent/10 to-base-secondary flex items-center justify-center">
+          <i className="fas fa-code text-4xl text-accent/30" />
+        </div>
+      )}
     </div>
     <div className="p-6">
       <h3 className="text-lg font-display font-semibold text-txt-primary mb-2">
@@ -139,7 +149,7 @@ export default function Home() {
             <div className="flex flex-wrap gap-3">
               <a
                 href="#services"
-                className="bg-accent text-base-primary px-6 py-2.5 rounded-lg font-semibold hover:bg-accent-light transition-colors"
+                className="bg-accent text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-accent-light transition-colors"
               >
                 サービスを見る
               </a>
@@ -152,39 +162,17 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Terminal card */}
-          <div className="bg-base-card border border-line rounded-2xl overflow-hidden reveal">
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-line">
-              <span className="w-3 h-3 rounded-full bg-red-500/70" />
-              <span className="w-3 h-3 rounded-full bg-yellow-500/70" />
-              <span className="w-3 h-3 rounded-full bg-green-500/70" />
-              <span className="text-txt-muted font-mono text-xs ml-2">
-                ~/profile
-              </span>
-            </div>
-            <div className="p-5 space-y-1.5">
-              <Line>
-                <K>name:</K>
-                <V>三上 剛太 (Godai Mikami)</V>
-              </Line>
-              <Line>
-                <K>location:</K>
-                <V>神奈川県</V>
-              </Line>
-              <Line>
-                <K>role:</K>
-                <V>System Dev / Infra Engineer</V>
-              </Line>
-              <Line>
-                <K>skills:</K>
-                <V>HTML, CSS, JS, Shell, Infra</V>
-              </Line>
-              <Line>
-                <K>status:</K>
-                <span className="text-accent font-mono text-sm">
-                  ● available for work
-                </span>
-              </Line>
+          {/* Profile photo */}
+          <div className="reveal flex justify-center md:justify-end">
+            <div className="relative w-[240px] h-[240px] md:w-[280px] md:h-[280px] rounded-2xl overflow-hidden bg-base-card border border-line shadow-sm">
+              <Image
+                src="/profile.png"
+                alt="三上 剛太"
+                fill
+                priority
+                sizes="280px"
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
@@ -317,30 +305,27 @@ export default function Home() {
             title="制作実績"
             sub="これまでに手がけたプロジェクトの一部をご紹介します。"
           />
-          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <WorkCard
               title="マーケティングSaaS LP"
               desc="架空のマーケティング自動化サービスのランディングページ。レスポンシブ対応、フォームバリデーション、FAQ実装。"
               tags={["Next.js", "Tailwind CSS", "React"]}
               href="/lp"
+              image="/works/lp.png"
             />
             <WorkCard
               title="イタリアンレストラン サイト"
               desc="架空のイタリアンレストランのコーポレートサイト。メニュー紹介、店舗情報、アクセス、予約導線。"
               tags={["Next.js", "Tailwind CSS", "React"]}
               href="/demo/restaurant"
+              image="/works/restaurant.png"
             />
             <WorkCard
               title="美容室 サイト"
               desc="架空の美容室サイト。メニュー・料金表、スタイリスト紹介、ネット予約導線。"
               tags={["Next.js", "Tailwind CSS", "React"]}
               href="/demo/salon"
-            />
-            <WorkCard
-              title="ポートフォリオサイト"
-              desc="本サイト。ダークテーマ、ターミナル風デザイン、スクロールアニメーション、レスポンシブ対応。"
-              tags={["Next.js", "Tailwind CSS", "React"]}
-              href="#hero"
+              image="/works/salon.png"
             />
           </div>
         </div>
@@ -418,7 +403,7 @@ export default function Home() {
           <p className="text-txt-secondary mb-3">制作実績サンプル</p>
           <Link
             href="/lp"
-            className="inline-block bg-accent text-base-primary px-8 py-3 rounded-lg font-semibold hover:bg-accent-light transition-colors"
+            className="inline-block bg-accent text-white px-8 py-3 rounded-lg font-semibold hover:bg-accent-light transition-colors"
           >
             LP サンプルを見る →
           </Link>

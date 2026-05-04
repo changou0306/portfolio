@@ -56,7 +56,7 @@ export default function Nav() {
           </Link>
           <a
             href="#contact"
-            className="bg-accent text-base-primary px-[18px] py-1.5 rounded-md text-[0.88rem] font-semibold hover:bg-accent-light transition-colors"
+            className="bg-accent text-white px-[18px] py-1.5 rounded-md text-[0.88rem] font-semibold hover:bg-accent-light transition-colors"
           >
             お問い合わせ
           </a>
@@ -117,7 +117,7 @@ export default function Nav() {
         <a
           href="#contact"
           onClick={closeMenu}
-          className="block bg-accent text-base-primary text-center px-[18px] py-2.5 rounded-md text-[0.95rem] font-semibold hover:bg-accent-light transition-colors mt-2"
+          className="block bg-accent text-white text-center px-[18px] py-2.5 rounded-md text-[0.95rem] font-semibold hover:bg-accent-light transition-colors mt-2"
         >
           お問い合わせ
         </a>

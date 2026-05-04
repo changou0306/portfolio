@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
   title: "Fleur Hair Salon | 表参道の美容室",
@@ -143,11 +144,16 @@ export default function SalonPage() {
               ))}
             </div>
           </div>
-          <div className="bg-gradient-to-br from-rose-100 to-pink-50 rounded-2xl h-80 flex items-center justify-center">
-            <div className="text-center text-rose-300">
-              <i className="fas fa-spa text-6xl mb-3" />
-              <p className="text-sm text-rose-400">Salon Image</p>
-            </div>
+          <div className="relative rounded-2xl overflow-hidden shadow-xl shadow-rose-200/40 ring-1 ring-rose-100">
+            <Image
+              src="/demo/salon/hero.png"
+              alt="Fleurのサロン内観"
+              width={1200}
+              height={900}
+              priority
+              sizes="(max-width: 768px) 100vw, 540px"
+              className="w-full h-auto"
+            />
           </div>
         </div>
       </section>
@@ -156,6 +162,16 @@ export default function SalonPage() {
       <section className="py-20">
         <div className="max-w-[1100px] mx-auto px-6">
           <SH sub="Fleur が大切にしていること">Concept</SH>
+          <div className="relative rounded-2xl overflow-hidden mb-12 shadow-lg shadow-rose-200/30 ring-1 ring-rose-100 max-w-3xl mx-auto">
+            <Image
+              src="/demo/salon/concept.png"
+              alt="オーガニック製品と上質な空間"
+              width={1200}
+              height={900}
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="w-full h-auto"
+            />
+          </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
