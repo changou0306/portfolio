@@ -80,7 +80,7 @@ const WorkCard = ({ title, desc, tags, href, image }) => (
             src={image}
             alt={title}
             fill
-            sizes="(max-width: 768px) 100vw, 540px"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 360px"
             className="object-cover object-top"
           />
         </div>
@@ -164,14 +164,15 @@ export default function Home() {
 
           {/* Profile photo */}
           <div className="reveal flex justify-center md:justify-end">
-            <div className="relative w-[240px] h-[240px] md:w-[280px] md:h-[280px] rounded-2xl overflow-hidden bg-base-card border border-line shadow-sm">
+            <div className="relative rounded-2xl overflow-hidden bg-base-card border border-line shadow-sm">
               <Image
                 src="/profile.png"
                 alt="三上 剛太"
-                fill
+                width={280}
+                height={280}
                 priority
-                sizes="280px"
-                className="object-cover"
+                fetchPriority="high"
+                className="block w-[240px] h-[240px] md:w-[280px] md:h-[280px] object-cover"
               />
             </div>
           </div>

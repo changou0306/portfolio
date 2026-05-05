@@ -223,7 +223,7 @@ export default function LpPage() {
               width={1200}
               height={900}
               priority
-              sizes="(max-width: 768px) 100vw, 540px"
+              sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 540px"
               className="w-full h-auto"
             />
           </div>
@@ -283,7 +283,7 @@ export default function LpPage() {
               alt="マーケティング自動化ワークフローの図"
               width={1200}
               height={900}
-              sizes="(max-width: 768px) 100vw, 540px"
+              sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 540px"
               className="w-full h-auto"
             />
           </div>
